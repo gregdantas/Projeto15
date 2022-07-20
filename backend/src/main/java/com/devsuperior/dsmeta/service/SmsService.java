@@ -31,8 +31,10 @@ import com.twilio.type.PhoneNumber;
         
 		public void sendSms(Long saleId) {
 			
-			Sale sale = saleRepository.findById(saleId).get();           
+			Sale sale = saleRepository.findById(saleId).get();        
+			 
 			String date= sale.getDate().getMonth()+"/"+sale.getDate().getYear();/*maneira de capturar e inverter valor da data*/
+			
 			String sms ="Vendedor "+sale.getSellerName()+" teve um total de R$="+sale.getAmount()+" vendidos " + date ; 
 			
 			Twilio.init(twilioSid, twilioKey);
